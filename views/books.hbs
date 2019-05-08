@@ -12,12 +12,16 @@
         <th>ID</th>
         <th>TITLE</th>
         <th>DESCRIPTION</th>
+        <th>URL</th>
       </tr>
       {{#each books}}
         <tr>
           <td>{{id}}</td>
           <td>{{title}}</td>
           <td>{{description}}</td>
+          <td>
+            <a href='books/{{{id}}}' >detail</a>
+          </td>
         </tr>
       {{/each}}
     </table>

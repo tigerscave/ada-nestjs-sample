@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException } from '@nestjs/common';
 import { BOOKS } from './books.mock';
 
 @Injectable()
@@ -9,5 +9,16 @@ export class BooksService {
     return new Promise(resolve => {
       resolve(this.books);
     });
+  }
+
+  getBook(bookID): Promise<any> {
+    let id = Number(bookID);
+    return new Promise(resolve => {
+      const book = this.books.find(book => book.id === id);
+      if(!book) {
+        throw new HttpException('Book does not exist!', 404);
+      }
+      resolve(book);
+    })
   }
 }
