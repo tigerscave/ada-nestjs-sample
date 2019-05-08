@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>App</title>
+  </head>
+
+  <body>
+    <h1>Books</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>DESCRIPTION</th>
+      </tr>
+      {{#each books}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{title}}</td>
+          <td>{{description}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  </body>
+</html>
