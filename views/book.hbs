@@ -3,21 +3,44 @@
   <head>
     <meta charset="utf-8">
     <title>Book</title>
+    <script src="/js/book.js"></script>
   </head>
 
   <body>
     <h1>Book ID {{book.id}}</h1>
-    <table>
+    <table id="info">
       <tr>
         <th>ID</th>
         <th>TITLE</th>
         <th>DESCRIPTION</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
       </tr>
       <tr>
         <td>{{book.id}}</td>
         <td>{{book.title}}</td>
         <td>{{book.description}}</td>
+        <td>
+          <button id="editButton">EDIT</button>
+        </td>
+        <td>
+          <button
+            value={{{book.id}}}
+            id="deleteButton">DELETE</button>
+        </td>
       </tr>
     </table>
+    <div id="edit">
+      <div>
+        <p>Title</p>
+        <input id="bookTitle" value={{{book.title}}} />
+      </div>
+      <div>
+        <p>Description</p>
+        <textarea
+          id="bookDesc">{{book.description}}</textarea>
+      </div>
+      <button id="updateButton" value={{{book.id}}}>UPDATE</button>
+    </div>
   </body>
 </html>
