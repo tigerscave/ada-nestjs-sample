@@ -15,7 +15,7 @@
     "start:debug": "nodemon --config nodemon-debug.json",
     "start:staging": "nodemon --config nodemon-staging.json",
     "prestart:prod": "rimraf dist && npm run build",
-    "start:prod": "node dist/main.js",
+    "start:prod": "NODE_ENV=production node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
