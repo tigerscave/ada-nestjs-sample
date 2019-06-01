@@ -6,6 +6,6 @@ module.exports = {
   "password": process.env.DB_PASSWORD,
   "database": process.env.DATABASE,
   "ssl": process.env.SSL === "TRUE",
-  "entities": process.env.NODE_ENV === 'development' ? ["src/**/*.entity{.ts,.js}"] : "dist/**/*.entity.js",
+  "entities": process.env.NODE_ENV === 'development' ? ["src/**/*.entity{.ts,.js}"] : ["dist/**/*.entity.js"],
   "synchronize": true
 }

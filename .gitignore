@@ -36,3 +36,4 @@ build/config\.gypi
 # env
 .env
 .env.staging
+/dist
