@@ -6,12 +6,13 @@
   </head>
 
   <body>
-    <h1>Books</h1>
+    <h1>ADA BOOK STORE</h1>
     <table>
       <tr>
         <th>ID</th>
         <th>TITLE</th>
         <th>DESCRIPTION</th>
+        <th>AUTHOR</th>
         <th>URL</th>
       </tr>
       {{#each books}}
@@ -19,6 +20,7 @@
           <td>{{id}}</td>
           <td>{{title}}</td>
           <td>{{description}}</td>
+          <td>{{author}}</td>
           <td>
             <a href='books/{{{id}}}' >detail</a>
           </td>

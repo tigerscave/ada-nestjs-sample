@@ -13,6 +13,7 @@
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
+    "start:staging": "nodemon --config nodemon-staging.json",
     "prestart:prod": "rimraf dist && npm run build",
     "start:prod": "node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -27,10 +28,14 @@
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/typeorm": "^6.1.1",
+    "dotenv": "^8.0.0",
+    "mysql": "^2.17.1",
+    "pg": "^7.11.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
-    "styled-jsx": "^3.2.1"
+    "typeorm": "^0.2.17"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",

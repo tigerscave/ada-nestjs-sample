@@ -11,10 +11,12 @@ const onUpdateButtonClicked = (e) => {
   const id = e.target.value;
   const title = document.getElementById('bookTitle').value;
   const description = document.getElementById('bookDesc').value;
+  const author = document.getElementById('bookAuthor').value;
   const params = {
     bookID: id,
     title,
-    description
+    description,
+    author
   };
   url.search = new URLSearchParams(params);
 

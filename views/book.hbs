@@ -13,6 +13,7 @@
         <th>ID</th>
         <th>TITLE</th>
         <th>DESCRIPTION</th>
+        <th>AUTHOR</th>
         <th>EDIT</th>
         <th>DELETE</th>
       </tr>
@@ -20,6 +21,7 @@
         <td>{{book.id}}</td>
         <td>{{book.title}}</td>
         <td>{{book.description}}</td>
+        <td>{{book.author}}</td>
         <td>
           <button id="editButton">EDIT</button>
         </td>
@@ -39,6 +41,11 @@
         <p>Description</p>
         <textarea
           id="bookDesc">{{book.description}}</textarea>
+      </div>
+      <div>
+        <p>Author</p>
+        <textarea
+          id="bookAuthor">{{book.author}}</textarea>
       </div>
       <button id="updateButton" value={{{book.id}}}>UPDATE</button>
     </div>

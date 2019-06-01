@@ -4,12 +4,13 @@ const url = new URL(window.origin + "/books");
 
 const onAddBookButtonClicked = () => {
   const title = document.getElementById('bookTitle').value;
-  const desc = document.getElementById('bookDesc').value;
+  const description = document.getElementById('bookDesc').value;
+  const author = document.getElementById('bookAuthor').value;
   const body = JSON.stringify(
     {
       title,
-      description: desc,
-      author: ""
+      description,
+      author
     }
   );
   fetch(url, {
