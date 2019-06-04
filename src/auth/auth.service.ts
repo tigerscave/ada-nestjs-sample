@@ -61,9 +61,5 @@ export class AuthService {
       token,
     }
   }
-
-  async validateUser(payload: JwtPayload): Promise<any> {
-    return {}
-  }
 }
 

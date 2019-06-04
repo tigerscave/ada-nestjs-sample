@@ -13,12 +13,6 @@ export class AuthController {
     return { message: 'Hello World!' }
   }
 
-  @Get('data')
-  @UseGuards(AuthGuard())
-  findAll() {
-
-  }
-
   @Post('register')
   async register(@Response() res: any, @Body() body: User): Promise<any> {
     return this.authService.register(res, body);
