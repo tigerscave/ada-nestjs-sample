@@ -1,28 +1,16 @@
-import { Controller, Get, UseGuards, Post, Body, Render, HttpStatus, Response } from '@nestjs/common';
+import { Controller, Get, UseGuards, Post, Body, Render, Response } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { User } from  '../user/user.entity';
-import { UserService } from '../user/user.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly userService: UserService
-    ) {
-
-  }
+  constructor(private readonly authService: AuthService) {}
 
   @Get()
   @Render('auth')
   getHellos() {
     return { message: 'Hello World!' }
-  }
-
-  @Get('token')
-  async createToken(): Promise <any> {
-    console.log("hogehoge")
-    return await this.authService.createToken()
   }
 
   @Get('data')
@@ -33,22 +21,7 @@ export class AuthController {
 
   @Post('register')
   async register(@Response() res: any, @Body() body: User): Promise<any> {
-    if(!(body && body.email && body.password)){
-      return res.status(HttpStatus.FORBIDDEN).json({ message: 'email and password are required' })
-    }
-
-    let user = await this.userService.getUserByEmail(body.email);
-
-    if(user) {
-      return res.status(HttpStatus.CONFLICT).json({ message: 'Email existed' })
-    }
-
-    user = await this.userService.create(body);
-    if(user) {
-      user.passwordHash = undefined;
-    }
-
-    return res.status(HttpStatus.OK).json(user);
+    return this.authService.register(res, body);
   }
 
   @Get('login')
@@ -58,8 +31,7 @@ export class AuthController {
   }
 
   @Post('login')
-  async login(@Body() user: User): Promise<any> {
-    console.log("login post")
-    return this.authService.login(user);
+  async login(@Response() res: any, @Body() body: User): Promise<any> {
+    return this.authService.login(res, body);
   }
 }
