@@ -3,15 +3,11 @@
 const url = new URL(window.origin + "/auth/register");
 
 const signUpButtonClicked = () => {
-  const user_name = document.getElementById('userName').value;
   const email = document.getElementById('email').value;
-  const photo_url = document.getElementById('photoUrl').value;
   const password = document.getElementById('password').value;
 
   const body = JSON.stringify({
-    user_name,
     email,
-    photo_url,
     password
   });
 
