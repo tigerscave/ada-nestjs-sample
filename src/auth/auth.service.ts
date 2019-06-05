@@ -25,7 +25,10 @@ export class AuthService {
 
     if(user) {
       if(await this.userService.compareHash(body.password, user.passwordHash)) {
-        return res.status(HttpStatus.OK).json(await this.createToken(user.id, user.email))
+        const token = await this.createToken(user.id, user.email);
+        res.setHeader('Authorization', `Bearer ${token.token}`);
+        res.cookie('token', token.token, { maxAge: 60 * 60 });
+        return res.status(HttpStatus.OK).json(token)
       }
     }
 

@@ -18,6 +18,11 @@ const loginButtonClicked = () => {
       'Content-Type': 'application/json'
     },
     body
+  }).then(res => {
+    res.json().then(r => {
+      const { token } = r;
+      sessionStorage.setItem('token', token);
+    })
   })
 }
 

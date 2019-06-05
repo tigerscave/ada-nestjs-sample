@@ -7,21 +7,22 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 import { User } from '../user/user.entity';
 import { UserService } from '../user/user.service';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
-    PassportModule.register({ defaultStrategy: 'jwt' }),
+    PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.register({
       secret: 'secretKey',
       signOptions: {
         expiresIn: 3600,
       },
     }),
-
+    UserModule
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, UserService]
+  providers: [AuthService, JwtStrategy]
 })
 
 export class AuthModule {}
