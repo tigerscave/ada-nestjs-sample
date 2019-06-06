@@ -1,13 +1,15 @@
-import { Controller, Get, Render, Param, Delete, Query, Put, Post, Body } from '@nestjs/common';
+import { Controller, Get, Render, Param, Delete, Query, Put, Post, Body, UseGuards } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { CreateBookDTO } from './dto/create-book.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('books')
+@UseGuards(AuthGuard('jwt'))
 export class BooksController {
   constructor(private booksService: BooksService) {}
 
   @Get()
-  @Render('books')
+  //@Render('books')
   async getBooks() {
     const books = await this.booksService.getBooks();
     return { books };
