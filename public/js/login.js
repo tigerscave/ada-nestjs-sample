@@ -22,6 +22,7 @@ const loginButtonClicked = () => {
     res.json().then(r => {
       const { token } = r;
       sessionStorage.setItem('token', token);
+      window.location = "/my-account.html"
     })
   })
 }

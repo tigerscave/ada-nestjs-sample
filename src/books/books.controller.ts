@@ -9,7 +9,7 @@ export class BooksController {
   constructor(private booksService: BooksService) {}
 
   @Get()
-  @Render('books')
+  //@Render('books')
   async getBooks() {
     const books = await this.booksService.getBooks();
     return { books };
